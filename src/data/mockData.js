@@ -110,6 +110,29 @@ export const courses = [
     durationHours: 15,
     updatedAt: '2026-08-14',
   },
+  {
+    id: 'crs-07',
+    title: 'Prompt Engineering for LLM Applications',
+    topic: 'NLP',
+    creator: 'Meera Iyer',
+    creatorId: 'usr-creator-01',
+    price: 59.99,
+    currency: 'USD',
+    rating: 0,
+    ratingCount: 0,
+    students: 0,
+    level: 'Intermediate',
+    status: 'Draft',
+    lessons: 9,
+    durationHours: 2,
+    updatedAt: '2026-09-04',
+    outcomes: [
+      'Design effective prompts for production LLM applications',
+      'Apply few-shot and chain-of-thought prompting techniques',
+      'Evaluate and iterate on prompt quality systematically',
+      'Integrate prompt templates into real automation workflows',
+    ],
+  },
 ];
 
 export const users = [
@@ -206,6 +229,13 @@ export const users = [
 ];
 
 export const administrators = users.filter((user) => user.role === 'administrator');
+
+// The Creator portal represents this one creator's session throughout —
+// every Creator page reuses these instead of re-deriving or re-picking one.
+export const CURRENT_CREATOR_ID = 'usr-creator-01';
+export const currentCreator = users.find((user) => user.id === CURRENT_CREATOR_ID);
+export const myCourses = courses.filter((course) => course.creatorId === CURRENT_CREATOR_ID);
+export const studioCourse = courses.find((course) => course.id === 'crs-07');
 
 export const transactions = [
   {
@@ -325,6 +355,24 @@ export const tickets = [
     priority: 'High',
     status: 'Closed',
     updatedAt: '2026-08-28',
+  },
+  {
+    id: 'tkt-4406',
+    subject: 'Video upload stuck at Processing for 2 days',
+    submittedBy: 'Meera Iyer',
+    course: 'Prompt Engineering for LLM Applications',
+    priority: 'High',
+    status: 'Open',
+    updatedAt: '2026-09-04',
+  },
+  {
+    id: 'tkt-4407',
+    subject: 'Question about payout tax form requirements',
+    submittedBy: 'Meera Iyer',
+    course: '—',
+    priority: 'Low',
+    status: 'Resolved',
+    updatedAt: '2026-08-20',
   },
 ];
 
@@ -565,6 +613,134 @@ export const emailTemplates = [
     status: 'Active',
     updatedAt: '2026-08-22',
   },
+];
+
+export const onboardingChecklist = [
+  { label: 'Identity verified (KYC)', done: true },
+  { label: 'Payout method connected', done: true },
+  { label: 'Creator agreement signed', done: true },
+  { label: 'Tax information submitted', done: false },
+];
+
+export const courseCurriculum = {
+  courseId: 'crs-07',
+  sections: [
+    {
+      id: 'sec-1',
+      title: 'Foundations of Prompting',
+      lessons: [
+        { id: 'les-1-1', title: 'What Makes a Good Prompt', type: 'video', durationMinutes: 14 },
+        { id: 'les-1-2', title: 'Prompt Structure & Anatomy', type: 'article', durationMinutes: 8 },
+        { id: 'les-1-3', title: 'Foundations Quiz', type: 'quiz', durationMinutes: 10 },
+      ],
+    },
+    {
+      id: 'sec-2',
+      title: 'Advanced Techniques',
+      lessons: [
+        { id: 'les-2-1', title: 'Few-Shot Prompting', type: 'video', durationMinutes: 18 },
+        { id: 'les-2-2', title: 'Chain-of-Thought Reasoning', type: 'video', durationMinutes: 21 },
+        { id: 'les-2-3', title: 'Prompt Patterns Reference', type: 'article', durationMinutes: 12 },
+      ],
+    },
+    {
+      id: 'sec-3',
+      title: 'Production Workflows',
+      lessons: [
+        { id: 'les-3-1', title: 'Templating with Variables', type: 'video', durationMinutes: 16 },
+        { id: 'les-3-2', title: 'Wiring Prompts into n8n', type: 'video', durationMinutes: 24 },
+        { id: 'les-3-3', title: 'Production Workflows Quiz', type: 'quiz', durationMinutes: 10 },
+      ],
+    },
+  ],
+};
+
+export const mediaAssets = [
+  {
+    id: 'med-1',
+    fileName: 'lesson-1-1-what-makes-a-good-prompt.mp4',
+    linkedLesson: 'What Makes a Good Prompt',
+    sizeMb: 184,
+    transcodeStatus: 'Ready',
+    captionStatus: 'Ready',
+    uploadedAt: '2026-09-01',
+  },
+  {
+    id: 'med-2',
+    fileName: 'lesson-2-1-few-shot-prompting.mp4',
+    linkedLesson: 'Few-Shot Prompting',
+    sizeMb: 221,
+    transcodeStatus: 'Processing',
+    captionStatus: 'Pending',
+    uploadedAt: '2026-09-03',
+  },
+  {
+    id: 'med-3',
+    fileName: 'lesson-2-2-chain-of-thought-reasoning.mp4',
+    linkedLesson: 'Chain-of-Thought Reasoning',
+    sizeMb: 256,
+    transcodeStatus: 'Ready',
+    captionStatus: 'Processing',
+    uploadedAt: '2026-09-03',
+  },
+  {
+    id: 'med-4',
+    fileName: 'lesson-3-1-templating-with-variables.mp4',
+    linkedLesson: 'Templating with Variables',
+    sizeMb: 198,
+    transcodeStatus: 'Ready',
+    captionStatus: 'Ready',
+    uploadedAt: '2026-09-04',
+  },
+  {
+    id: 'med-5',
+    fileName: 'lesson-3-2-wiring-prompts-into-n8n.mp4',
+    linkedLesson: 'Wiring Prompts into n8n',
+    sizeMb: 267,
+    transcodeStatus: 'Failed',
+    captionStatus: 'Pending',
+    uploadedAt: '2026-09-04',
+  },
+];
+
+export const quizzes = [
+  {
+    id: 'quiz-1',
+    title: 'Foundations Quiz',
+    linkedSection: 'Foundations of Prompting',
+    questionCount: 8,
+    passingScore: 70,
+    status: 'Ready',
+  },
+  {
+    id: 'quiz-2',
+    title: 'Production Workflows Quiz',
+    linkedSection: 'Production Workflows',
+    questionCount: 10,
+    passingScore: 75,
+    status: 'Draft',
+  },
+];
+
+export const preflightChecklist = [
+  { label: 'Course basics completed (title, category, level, outcomes)', done: true },
+  { label: 'At least 3 curriculum sections added', done: true },
+  { label: 'All videos finished transcoding', done: false },
+  { label: 'Captions generated for all videos', done: false },
+  { label: 'At least one assessment published', done: false },
+  { label: 'Pricing and payout details confirmed', done: true },
+];
+
+export const earningsSummary = {
+  gross: 214300,
+  net: 150010,
+  thisMonth: 18420,
+};
+
+export const earningsByCourse = [
+  { label: 'Python for Data Analysis', gross: 214300 },
+  { label: 'NLP Engineering', gross: 0 },
+  { label: 'Prompt Engineering', gross: 0 },
 ];
 
 export const notifications = [

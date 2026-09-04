@@ -6,7 +6,7 @@ import Modal from '../../components/shared/Modal';
 import { kycApplications, courses } from '../../data/mockData';
 import { getAccentClasses } from '../../config/accent';
 
-const pendingSubmissions = courses.filter((course) => course.status !== 'Published');
+const pendingSubmissions = courses.filter((course) => course.status === 'In Review');
 
 const DECISION_TONE = { Approved: 'positive', Rejected: 'negative' };
 

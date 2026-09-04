@@ -24,6 +24,11 @@ import {
   ListChecks,
   Award,
   Heart,
+  UserCheck,
+  FileText,
+  Film,
+  ClipboardList,
+  Send,
 } from 'lucide-react';
 
 export const ROLES = {
@@ -73,13 +78,17 @@ export const ROLES = {
     badgeIcon: PenTool,
     tagline: 'Course studio',
     nav: [
-      { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-      { id: 'my-courses', label: 'My Courses', icon: BookOpen },
+      { id: 'onboarding', label: 'Onboarding & Verification', icon: UserCheck },
+      { id: 'my-courses', label: 'Course List', icon: BookOpen },
+      { id: 'course-basics', label: 'Course Basics', icon: FileText },
       { id: 'curriculum', label: 'Curriculum Builder', icon: PenTool },
+      { id: 'media', label: 'Media Manager', icon: Film },
+      { id: 'assessments', label: 'Assessments', icon: ClipboardList },
+      { id: 'submit-review', label: 'Submit for Review', icon: Send },
       { id: 'students', label: 'Students', icon: GraduationCap },
-      { id: 'earnings', label: 'Earnings', icon: Wallet },
+      { id: 'earnings', label: 'Earnings Dashboard', icon: Wallet },
       { id: 'reviews', label: 'Reviews', icon: Star },
-      { id: 'messages', label: 'Messages', icon: MessagesSquare },
+      { id: 'support', label: 'Raise a Ticket', icon: LifeBuoy },
     ],
   },
   subscriber: {
