@@ -20,6 +20,7 @@ export const courses = [
     ratingCount: 2140,
     students: 12450,
     level: 'Beginner',
+    language: 'English',
     status: 'Published',
     lessons: 84,
     durationHours: 22,
@@ -37,10 +38,17 @@ export const courses = [
     ratingCount: 1380,
     students: 8920,
     level: 'Beginner',
+    language: 'English',
     status: 'Published',
     lessons: 62,
     durationHours: 16,
     updatedAt: '2026-07-30',
+    outcomes: [
+      'Design normalized relational schemas for real applications',
+      'Write efficient SQL queries across joins, aggregates, and subqueries',
+      'Optimize database performance with proper indexing strategies',
+      'Build and query a production-style database from scratch',
+    ],
   },
   {
     id: 'crs-03',
@@ -54,6 +62,7 @@ export const courses = [
     ratingCount: 2760,
     students: 15300,
     level: 'Intermediate',
+    language: 'English',
     status: 'Published',
     lessons: 96,
     durationHours: 28,
@@ -71,6 +80,7 @@ export const courses = [
     ratingCount: 1920,
     students: 9870,
     level: 'Advanced',
+    language: 'English',
     status: 'Published',
     lessons: 110,
     durationHours: 34,
@@ -88,6 +98,7 @@ export const courses = [
     ratingCount: 845,
     students: 6240,
     level: 'Intermediate',
+    language: 'English',
     status: 'In Review',
     lessons: 58,
     durationHours: 19,
@@ -105,6 +116,7 @@ export const courses = [
     ratingCount: 512,
     students: 5180,
     level: 'Advanced',
+    language: 'English',
     status: 'Published',
     lessons: 47,
     durationHours: 15,
@@ -122,6 +134,7 @@ export const courses = [
     ratingCount: 0,
     students: 0,
     level: 'Intermediate',
+    language: 'English',
     status: 'Draft',
     lessons: 9,
     durationHours: 2,
@@ -144,7 +157,7 @@ export const users = [
     role: 'subscriber',
     status: 'Active',
     joinedAt: '2025-11-02',
-    coursesEnrolled: 4,
+    coursesEnrolled: 3,
     hoursLearned: 61,
   },
   {
@@ -307,6 +320,26 @@ export const transactions = [
     status: 'Paid',
     method: 'PayPal',
     date: '2026-08-27',
+  },
+  {
+    id: 'txn-1008',
+    courseTitle: 'Machine Learning Foundations with Scikit-learn',
+    buyer: 'Ananya Rao',
+    amount: 59.99,
+    currency: 'USD',
+    status: 'Paid',
+    method: 'Card',
+    date: '2026-08-20',
+  },
+  {
+    id: 'txn-1009',
+    courseTitle: 'Building AI Agent Workflows: RAG Pipelines & n8n Automation',
+    buyer: 'Ananya Rao',
+    amount: 89.99,
+    currency: 'USD',
+    status: 'Paid',
+    method: 'Card',
+    date: '2026-08-31',
   },
 ];
 
@@ -571,8 +604,8 @@ export const subscriptionPlan = {
   status: 'Active',
   entitlements: [
     'Unlimited access to the full course catalog',
-    'Certificates of completion',
-    'Offline downloads for mobile',
+    'New courses added every month',
+    'Access on any device, anytime',
     'Priority support response',
   ],
   subscriberCount: 8340,
@@ -741,6 +774,130 @@ export const earningsByCourse = [
   { label: 'Python for Data Analysis', gross: 214300 },
   { label: 'NLP Engineering', gross: 0 },
   { label: 'Prompt Engineering', gross: 0 },
+];
+
+// The Subscriber portal represents this one learner's session throughout —
+// every Subscriber page reuses these instead of re-deriving or re-picking one.
+export const CURRENT_SUBSCRIBER_ID = 'usr-subscriber-01';
+export const currentSubscriber = users.find((user) => user.id === CURRENT_SUBSCRIBER_ID);
+
+export const enrollments = [
+  { courseId: 'crs-01', progress: 100, lastAccessedAt: '2026-08-25', status: 'Completed' },
+  { courseId: 'crs-03', progress: 56, lastAccessedAt: '2026-09-04', status: 'In Progress' },
+  { courseId: 'crs-06', progress: 15, lastAccessedAt: '2026-09-01', status: 'In Progress' },
+];
+
+const enrolledCourseIds = enrollments.map((enrollment) => enrollment.courseId);
+
+export const myEnrolledCourses = enrollments.map((enrollment) => ({
+  ...courses.find((course) => course.id === enrollment.courseId),
+  enrollment,
+}));
+
+export const recommendedCourses = courses.filter(
+  (course) => course.status === 'Published' && !enrolledCourseIds.includes(course.id),
+);
+
+// The one course a not-yet-enrolled visitor browses through Course Detail,
+// Search, View Plans, and Cart & Checkout.
+export const featuredCourseId = 'crs-02';
+export const featuredCourse = courses.find((course) => course.id === featuredCourseId);
+
+// The one enrolled course whose curriculum/player/quiz pages show real
+// progress — chosen because it's mid-way through (56%), not finished or
+// just started.
+export const playerCourseId = 'crs-03';
+export const playerCourse = courses.find((course) => course.id === playerCourseId);
+
+export const courseDetailCurriculum = {
+  courseId: 'crs-02',
+  sections: [
+    { id: 'sql-sec-1', title: 'Relational Database Fundamentals', lessonCount: 9 },
+    { id: 'sql-sec-2', title: 'Writing Queries with SQL', lessonCount: 14 },
+    { id: 'sql-sec-3', title: 'Schema Design & Normalization', lessonCount: 11 },
+    { id: 'sql-sec-4', title: 'Indexes, Joins & Performance', lessonCount: 13 },
+    { id: 'sql-sec-5', title: 'Real-World Database Projects', lessonCount: 15 },
+  ],
+};
+
+export const learningCurriculum = {
+  courseId: 'crs-03',
+  sections: [
+    {
+      id: 'ml-sec-1',
+      title: 'Introduction to Machine Learning',
+      lessons: [
+        { id: 'ml-1-1', title: 'What is Machine Learning?', type: 'video', durationMinutes: 12, completed: true },
+        { id: 'ml-1-2', title: 'Supervised vs Unsupervised Learning', type: 'video', durationMinutes: 15, completed: true },
+        { id: 'ml-1-3', title: 'Setting Up Your Environment', type: 'article', durationMinutes: 6, completed: true },
+      ],
+    },
+    {
+      id: 'ml-sec-2',
+      title: 'Regression & Classification',
+      lessons: [
+        { id: 'ml-2-1', title: 'Linear Regression from Scratch', type: 'video', durationMinutes: 22, completed: true },
+        { id: 'ml-2-2', title: 'Logistic Regression', type: 'video', durationMinutes: 19, completed: true },
+        { id: 'ml-2-3', title: 'Regression Quiz', type: 'quiz', durationMinutes: 10, completed: false },
+      ],
+    },
+    {
+      id: 'ml-sec-3',
+      title: 'Model Evaluation',
+      lessons: [
+        { id: 'ml-3-1', title: 'Cross-Validation Techniques', type: 'video', durationMinutes: 18, completed: false },
+        { id: 'ml-3-2', title: 'Confusion Matrices & Metrics', type: 'video', durationMinutes: 20, completed: false },
+        { id: 'ml-3-3', title: 'Evaluation Quiz', type: 'quiz', durationMinutes: 12, completed: false },
+      ],
+    },
+  ],
+};
+
+// The lesson Content Player has open — the first not-yet-completed video.
+export const currentLessonId = 'ml-3-1';
+
+export const sampleQuizQuestion = {
+  quizTitle: 'Regression Quiz',
+  courseId: 'crs-03',
+  question: 'Which metric is most appropriate for evaluating a binary classification model with imbalanced classes?',
+  options: [
+    { id: 'a', text: 'Accuracy' },
+    { id: 'b', text: 'F1 score' },
+    { id: 'c', text: 'Mean Squared Error' },
+    { id: 'd', text: 'R-squared' },
+  ],
+  correctOptionId: 'b',
+  explanation:
+    'Accuracy can be misleading on imbalanced datasets since predicting the majority class alone can yield high accuracy. F1 score balances precision and recall, making it far more informative for imbalanced classification problems.',
+};
+
+export const learningStats = {
+  streakDays: 12,
+  avgQuizScore: 84,
+};
+
+export const weeklyLearningHours = [
+  { week: 'W1', hours: 4 },
+  { week: 'W2', hours: 6 },
+  { week: 'W3', hours: 5 },
+  { week: 'W4', hours: 8 },
+  { week: 'W5', hours: 7 },
+  { week: 'W6', hours: 9 },
+];
+
+export const mySubscription = {
+  planName: 'OLMA Unlimited',
+  price: 19.99,
+  billingPeriod: 'month',
+  status: 'Active',
+  renewalDate: '2026-10-04',
+  startedAt: '2025-11-02',
+};
+
+export const activeSessions = [
+  { id: 'sess-1', device: 'Chrome on macOS', location: 'Mumbai, India', lastActive: '2026-09-04 09:12', current: true },
+  { id: 'sess-2', device: 'OLMA iOS App', location: 'Mumbai, India', lastActive: '2026-09-03 21:40', current: false },
+  { id: 'sess-3', device: 'Safari on iPhone', location: 'Pune, India', lastActive: '2026-08-29 18:05', current: false },
 ];
 
 export const notifications = [

@@ -13,6 +13,20 @@ import Assessments from './creator/Assessments';
 import SubmitForReview from './creator/SubmitForReview';
 import EarningsDashboard from './creator/EarningsDashboard';
 import RaiseTicket from './creator/RaiseTicket';
+import HomePage from './subscriber/HomePage';
+import CourseDetail from './subscriber/CourseDetail';
+import SearchResults from './subscriber/SearchResults';
+import ViewPlans from './subscriber/ViewPlans';
+import CartCheckout from './subscriber/CartCheckout';
+import SubscriptionManagement from './subscriber/SubscriptionManagement';
+import PurchaseHistory from './subscriber/PurchaseHistory';
+import MyCourses from './subscriber/MyCourses';
+import ProgressDashboard from './subscriber/ProgressDashboard';
+import CourseSectionOverview from './subscriber/CourseSectionOverview';
+import ContentPlayer from './subscriber/ContentPlayer';
+import SubscriberAssessments from './subscriber/Assessments';
+import SubscriberRaiseTicket from './subscriber/RaiseTicket';
+import AccountSecurity from './subscriber/AccountSecurity';
 
 // Maps roleId -> navId -> page component. A nav item with no entry here still
 // falls back to the shared EmptyState placeholder, so new roles/pages can be
@@ -38,6 +52,22 @@ const PAGE_REGISTRY = {
     'submit-review': SubmitForReview,
     earnings: EarningsDashboard,
     support: RaiseTicket,
+  },
+  subscriber: {
+    dashboard: HomePage,
+    'course-detail': CourseDetail,
+    catalog: SearchResults,
+    plans: ViewPlans,
+    cart: CartCheckout,
+    subscription: SubscriptionManagement,
+    'purchase-history': PurchaseHistory,
+    'my-learning': MyCourses,
+    progress: ProgressDashboard,
+    'section-overview': CourseSectionOverview,
+    player: ContentPlayer,
+    assessments: SubscriberAssessments,
+    messages: SubscriberRaiseTicket,
+    account: AccountSecurity,
   },
 };
 
