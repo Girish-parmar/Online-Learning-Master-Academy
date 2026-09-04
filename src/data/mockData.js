@@ -467,6 +467,106 @@ export const auditLogEntries = [
   },
 ];
 
+export const kycApplications = [
+  {
+    id: 'kyc-001',
+    applicantName: 'Farah Al-Sayed',
+    email: 'farah.alsayed@example.com',
+    country: 'United Arab Emirates',
+    submittedAt: '2026-09-02',
+    documentsSubmitted: 3,
+    status: 'Pending',
+  },
+  {
+    id: 'kyc-002',
+    applicantName: 'Tobias Reinhardt',
+    email: 'tobias.reinhardt@example.com',
+    country: 'Germany',
+    submittedAt: '2026-09-01',
+    documentsSubmitted: 4,
+    status: 'Pending',
+  },
+  {
+    id: 'kyc-003',
+    applicantName: 'Ngozi Adeyemi',
+    email: 'ngozi.adeyemi@example.com',
+    country: 'Nigeria',
+    submittedAt: '2026-08-30',
+    documentsSubmitted: 2,
+    status: 'Pending',
+  },
+  {
+    id: 'kyc-004',
+    applicantName: 'Wei Chen',
+    email: 'wei.chen@example.com',
+    country: 'Singapore',
+    submittedAt: '2026-08-29',
+    documentsSubmitted: 3,
+    status: 'Pending',
+  },
+  {
+    id: 'kyc-005',
+    applicantName: 'Camille Dubois',
+    email: 'camille.dubois@example.com',
+    country: 'France',
+    submittedAt: '2026-08-28',
+    documentsSubmitted: 4,
+    status: 'Pending',
+  },
+];
+
+export const subscriptionPlan = {
+  name: 'OLMA Unlimited',
+  price: 19.99,
+  currency: 'USD',
+  billingPeriod: 'month',
+  status: 'Active',
+  entitlements: [
+    'Unlimited access to the full course catalog',
+    'Certificates of completion',
+    'Offline downloads for mobile',
+    'Priority support response',
+  ],
+  subscriberCount: 8340,
+  updatedAt: '2026-08-15',
+};
+
+export const emailTemplates = [
+  {
+    id: 'tpl-001',
+    name: 'Welcome Email',
+    category: 'Transactional',
+    trigger: 'New account created',
+    subject: 'Welcome to OLMA — let’s get you learning',
+    previewBody:
+      'Hi {{first_name}}, welcome to OLMA! Your account is ready — explore courses across Python, databases, machine learning, deep learning, NLP, and RAG. Jump back in anytime from your dashboard.',
+    status: 'Active',
+    updatedAt: '2026-07-18',
+  },
+  {
+    id: 'tpl-002',
+    name: 'Purchase Confirmation',
+    category: 'Transactional',
+    trigger: 'Course purchase completed',
+    subject: 'Your OLMA order is confirmed',
+    previewBody:
+      'Hi {{first_name}}, thanks for your purchase of {{course_title}}. Your receipt is attached, and the course is now available under My Learning.',
+    status: 'Active',
+    updatedAt: '2026-08-02',
+  },
+  {
+    id: 'tpl-003',
+    name: 'Course Published',
+    category: 'Transactional',
+    trigger: 'Creator publishes a new course',
+    subject: 'Your course is live on OLMA',
+    previewBody:
+      'Hi {{creator_name}}, your course {{course_title}} just went live on OLMA. Students can now discover and enroll — track performance from your Creator dashboard.',
+    status: 'Active',
+    updatedAt: '2026-08-22',
+  },
+];
+
 export const notifications = [
   {
     id: 'ntf-01',

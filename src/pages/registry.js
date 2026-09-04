@@ -1,6 +1,9 @@
 import GlobalSummary from './superadmin/GlobalSummary';
 import AuditLog from './superadmin/AuditLog';
 import AdministratorAccounts from './superadmin/AdministratorAccounts';
+import ApprovalQueue from './administrator/ApprovalQueue';
+import SubscriptionPlans from './administrator/SubscriptionPlans';
+import TemplateLibrary from './administrator/TemplateLibrary';
 
 // Maps roleId -> navId -> page component. A nav item with no entry here still
 // falls back to the shared EmptyState placeholder, so new roles/pages can be
@@ -10,6 +13,11 @@ const PAGE_REGISTRY = {
     'global-summary': GlobalSummary,
     'audit-log': AuditLog,
     administrators: AdministratorAccounts,
+  },
+  administrator: {
+    approvals: ApprovalQueue,
+    plans: SubscriptionPlans,
+    templates: TemplateLibrary,
   },
 };
 
