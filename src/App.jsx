@@ -4,6 +4,7 @@ import Sidebar from './components/layout/Sidebar';
 import EmptyState from './components/shared/EmptyState';
 import { ROLES, ROLE_ORDER } from './config/roles';
 import { getAccentClasses } from './config/accent';
+import { getPageComponent } from './pages/registry';
 
 export default function App() {
   const [activeRoleId, setActiveRoleId] = useState(ROLE_ORDER[0]);
@@ -21,6 +22,8 @@ export default function App() {
     [role, activeNavId],
   );
 
+  const PageComponent = getPageComponent(activeRoleId, activeNavItem.id);
+
   return (
     <div className="flex min-h-screen flex-col">
       <TopBar activeRoleId={activeRoleId} onRoleChange={handleRoleChange} />
@@ -36,12 +39,16 @@ export default function App() {
               <span className="text-ink-faint">{role.subdomain}</span>
             </div>
             <div className="mt-6">
-              <EmptyState
-                icon={activeNavItem.icon}
-                title={`${activeNavItem.label} arrives in a later phase`}
-                description="This is the shared shell — navigation, role switching, and presentational components are wired up. Real page content lands next."
-                accent={role.accent}
-              />
+              {PageComponent ? (
+                <PageComponent />
+              ) : (
+                <EmptyState
+                  icon={activeNavItem.icon}
+                  title={`${activeNavItem.label} arrives in a later phase`}
+                  description="This is the shared shell — navigation, role switching, and presentational components are wired up. Real page content lands next."
+                  accent={role.accent}
+                />
+              )}
             </div>
           </div>
         </main>

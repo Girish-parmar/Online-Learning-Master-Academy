@@ -7,6 +7,16 @@ const COLUMN_CLASSES = {
   4: 'sm:grid-cols-2 lg:grid-cols-4',
 };
 
+// `trend` picks the arrow shown; `sentiment` picks the color. They diverge for
+// metrics like churn where a downward trend is the good outcome — pass an
+// explicit `sentiment` to override the trend-implies-color default.
+function deltaColor(tile) {
+  const sentiment = tile.sentiment ?? (tile.trend === 'up' ? 'positive' : tile.trend === 'down' ? 'negative' : undefined);
+  if (sentiment === 'positive') return 'text-brand';
+  if (sentiment === 'negative') return 'text-rose-700';
+  return 'text-ink-faint';
+}
+
 export default function StatTiles({ tiles = [], columns = 4 }) {
   const colsClass = COLUMN_CLASSES[columns] ?? COLUMN_CLASSES[4];
 
@@ -28,15 +38,7 @@ export default function StatTiles({ tiles = [], columns = 4 }) {
             </div>
             <div className="mt-3 font-display text-2xl font-semibold text-ink">{tile.value}</div>
             {tile.delta && (
-              <div
-                className={`mt-1 flex items-center gap-1 text-xs ${
-                  tile.trend === 'up'
-                    ? 'text-brand'
-                    : tile.trend === 'down'
-                      ? 'text-rose-700'
-                      : 'text-ink-faint'
-                }`}
-              >
+              <div className={`mt-1 flex items-center gap-1 text-xs ${deltaColor(tile)}`}>
                 {tile.trend === 'up' && <TrendingUp className="h-3.5 w-3.5" />}
                 {tile.trend === 'down' && <TrendingDown className="h-3.5 w-3.5" />}
                 <span>{tile.delta}</span>

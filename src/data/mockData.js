@@ -145,7 +145,52 @@ export const users = [
     status: 'Active',
     joinedAt: '2024-01-09',
     department: 'Trust & Support',
+    region: 'North America',
     ticketsResolved: 1204,
+  },
+  {
+    id: 'usr-admin-02',
+    name: 'Aisha Bello',
+    email: 'aisha.bello@olma.io',
+    avatarInitials: 'AB',
+    role: 'administrator',
+    status: 'Active',
+    joinedAt: '2024-05-20',
+    department: 'Payments Operations',
+    region: 'EMEA',
+  },
+  {
+    id: 'usr-admin-03',
+    name: 'Diego Fuentes',
+    email: 'diego.fuentes@olma.io',
+    avatarInitials: 'DF',
+    role: 'administrator',
+    status: 'Active',
+    joinedAt: '2024-09-11',
+    department: 'Content Moderation',
+    region: 'Latin America',
+  },
+  {
+    id: 'usr-admin-04',
+    name: 'Hana Kobayashi',
+    email: 'hana.kobayashi@olma.io',
+    avatarInitials: 'HK',
+    role: 'administrator',
+    status: 'Active',
+    joinedAt: '2025-02-03',
+    department: 'Platform Engineering',
+    region: 'Asia-Pacific',
+  },
+  {
+    id: 'usr-admin-05',
+    name: 'Sarah Lindgren',
+    email: 'sarah.lindgren@olma.io',
+    avatarInitials: 'SL',
+    role: 'administrator',
+    status: 'Invited',
+    joinedAt: '2026-08-30',
+    department: 'Compliance',
+    region: 'EMEA',
   },
   {
     id: 'usr-superadmin-01',
@@ -159,6 +204,8 @@ export const users = [
     orgsManaged: 12,
   },
 ];
+
+export const administrators = users.filter((user) => user.role === 'administrator');
 
 export const transactions = [
   {
@@ -278,6 +325,145 @@ export const tickets = [
     priority: 'High',
     status: 'Closed',
     updatedAt: '2026-08-28',
+  },
+];
+
+export const platformMetrics = {
+  uptime: {
+    label: 'Platform uptime',
+    value: '99.98%',
+    delta: '+0.02 pt vs last month',
+    trend: 'up',
+    sentiment: 'positive',
+  },
+  activeUsers: {
+    label: 'Active users',
+    value: '42,180',
+    delta: '+6.4% vs last month',
+    trend: 'up',
+    sentiment: 'positive',
+  },
+  gmvThisMonth: {
+    label: 'GMV this month',
+    value: '$284.6K',
+    delta: '+11.2% vs last month',
+    trend: 'up',
+    sentiment: 'positive',
+  },
+  churnRate: {
+    label: 'Churn rate',
+    value: '2.1%',
+    delta: '-0.3 pt vs last month',
+    trend: 'down',
+    sentiment: 'positive',
+  },
+};
+
+export const gmvTrend = [
+  { month: 'Apr', gmv: 198400 },
+  { month: 'May', gmv: 212300 },
+  { month: 'Jun', gmv: 227900 },
+  { month: 'Jul', gmv: 241500 },
+  { month: 'Aug', gmv: 256800 },
+  { month: 'Sep', gmv: 284600 },
+];
+
+export const auditLogEntries = [
+  {
+    id: 'aud-001',
+    timestamp: '2026-09-04 16:05',
+    actor: 'Olivia Grant',
+    action: 'Granted Administrator role',
+    target: 'Sarah Lindgren',
+    severity: 'Sensitive',
+  },
+  {
+    id: 'aud-002',
+    timestamp: '2026-09-04 14:32',
+    actor: 'Marcus Chen',
+    action: 'Suspended user account',
+    target: 'Kwame Mensah (subscriber)',
+    severity: 'Sensitive',
+  },
+  {
+    id: 'aud-003',
+    timestamp: '2026-09-04 11:18',
+    actor: 'Aisha Bello',
+    action: 'Issued refund override',
+    target: 'txn-1003 · $59.99',
+    severity: 'Sensitive',
+  },
+  {
+    id: 'aud-004',
+    timestamp: '2026-09-03 22:47',
+    actor: 'Hana Kobayashi',
+    action: 'Rotated platform API signing key',
+    target: 'Payments service',
+    severity: 'Critical',
+  },
+  {
+    id: 'aud-005',
+    timestamp: '2026-09-03 18:20',
+    actor: 'Diego Fuentes',
+    action: 'Unpublished course listing',
+    target: 'NLP Engineering: Text to Meaning with Transformers',
+    severity: 'Routine',
+  },
+  {
+    id: 'aud-006',
+    timestamp: '2026-09-03 09:12',
+    actor: 'Olivia Grant',
+    action: 'Updated platform fee schedule',
+    target: 'Creator payout tier: Standard → Plus',
+    severity: 'Critical',
+  },
+  {
+    id: 'aud-007',
+    timestamp: '2026-09-02 20:03',
+    actor: 'Marcus Chen',
+    action: 'Resolved escalated support ticket',
+    target: 'tkt-4405',
+    severity: 'Routine',
+  },
+  {
+    id: 'aud-008',
+    timestamp: '2026-09-02 15:44',
+    actor: 'Sarah Lindgren',
+    action: 'Approved compliance policy update',
+    target: 'Data retention policy v3',
+    severity: 'Sensitive',
+  },
+  {
+    id: 'aud-009',
+    timestamp: '2026-09-01 10:30',
+    actor: 'Aisha Bello',
+    action: 'Approved payout batch',
+    target: 'August payouts · $214,300',
+    severity: 'Critical',
+  },
+  {
+    id: 'aud-010',
+    timestamp: '2026-08-31 13:57',
+    actor: 'Marcus Chen',
+    action: 'Reset two-factor authentication',
+    target: 'Ananya Rao',
+    severity: 'Sensitive',
+  },
+  {
+    id: 'aud-011',
+    timestamp: '2026-08-30 08:15',
+    actor: 'Hana Kobayashi',
+    action: 'Deployed platform configuration change',
+    target: 'Checkout service v2.4.1',
+    severity: 'Routine',
+  },
+  {
+    id: 'aud-012',
+    timestamp: '2026-08-29 17:26',
+    actor: 'Olivia Grant',
+    action: 'Revoked administrator access',
+    target: 'Former staff account',
+    severity: 'Critical',
   },
 ];
 
