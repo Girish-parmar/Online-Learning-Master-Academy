@@ -1,0 +1,946 @@
+// Single shared mock-data module for the OLMA demo.
+// Every portal/page should import from here rather than inventing new fixtures.
+
+export const currentUser = {
+  name: 'Jordan Ellis',
+  email: 'jordan.ellis@olma.io',
+  avatarInitials: 'JE',
+};
+
+export const courses = [
+  {
+    id: 'crs-01',
+    title: 'Python for Data Analysis: Zero to Production',
+    topic: 'Python',
+    creator: 'Meera Iyer',
+    creatorId: 'usr-creator-01',
+    price: 49.99,
+    currency: 'USD',
+    rating: 4.8,
+    ratingCount: 2140,
+    students: 12450,
+    level: 'Beginner',
+    language: 'English',
+    status: 'Published',
+    lessons: 84,
+    durationHours: 22,
+    updatedAt: '2026-08-21',
+  },
+  {
+    id: 'crs-02',
+    title: 'SQL & Database Design Foundations',
+    topic: 'Databases',
+    creator: 'Priya Nair',
+    creatorId: 'usr-creator-02',
+    price: 39.99,
+    currency: 'USD',
+    rating: 4.6,
+    ratingCount: 1380,
+    students: 8920,
+    level: 'Beginner',
+    language: 'English',
+    status: 'Published',
+    lessons: 62,
+    durationHours: 16,
+    updatedAt: '2026-07-30',
+    outcomes: [
+      'Design normalized relational schemas for real applications',
+      'Write efficient SQL queries across joins, aggregates, and subqueries',
+      'Optimize database performance with proper indexing strategies',
+      'Build and query a production-style database from scratch',
+    ],
+  },
+  {
+    id: 'crs-03',
+    title: 'Machine Learning Foundations with Scikit-learn',
+    topic: 'Machine Learning',
+    creator: 'Priya Nair',
+    creatorId: 'usr-creator-02',
+    price: 59.99,
+    currency: 'USD',
+    rating: 4.7,
+    ratingCount: 2760,
+    students: 15300,
+    level: 'Intermediate',
+    language: 'English',
+    status: 'Published',
+    lessons: 96,
+    durationHours: 28,
+    updatedAt: '2026-08-05',
+  },
+  {
+    id: 'crs-04',
+    title: 'Deep Learning with PyTorch: Tensors to Transformers',
+    topic: 'Deep Learning',
+    creator: 'Daniel Osei',
+    creatorId: 'usr-creator-03',
+    price: 79.99,
+    currency: 'USD',
+    rating: 4.9,
+    ratingCount: 1920,
+    students: 9870,
+    level: 'Advanced',
+    language: 'English',
+    status: 'Published',
+    lessons: 110,
+    durationHours: 34,
+    updatedAt: '2026-08-28',
+  },
+  {
+    id: 'crs-05',
+    title: 'NLP Engineering: Text to Meaning with Transformers',
+    topic: 'NLP',
+    creator: 'Meera Iyer',
+    creatorId: 'usr-creator-01',
+    price: 69.99,
+    currency: 'USD',
+    rating: 4.5,
+    ratingCount: 845,
+    students: 6240,
+    level: 'Intermediate',
+    language: 'English',
+    status: 'In Review',
+    lessons: 58,
+    durationHours: 19,
+    updatedAt: '2026-09-01',
+  },
+  {
+    id: 'crs-06',
+    title: 'Building AI Agent Workflows: RAG Pipelines & n8n Automation',
+    topic: 'RAG & Automation',
+    creator: 'Daniel Osei',
+    creatorId: 'usr-creator-03',
+    price: 89.99,
+    currency: 'USD',
+    rating: 4.8,
+    ratingCount: 512,
+    students: 5180,
+    level: 'Advanced',
+    language: 'English',
+    status: 'Published',
+    lessons: 47,
+    durationHours: 15,
+    updatedAt: '2026-08-14',
+  },
+  {
+    id: 'crs-07',
+    title: 'Prompt Engineering for LLM Applications',
+    topic: 'NLP',
+    creator: 'Meera Iyer',
+    creatorId: 'usr-creator-01',
+    price: 59.99,
+    currency: 'USD',
+    rating: 0,
+    ratingCount: 0,
+    students: 0,
+    level: 'Intermediate',
+    language: 'English',
+    status: 'Draft',
+    lessons: 9,
+    durationHours: 2,
+    updatedAt: '2026-09-04',
+    outcomes: [
+      'Design effective prompts for production LLM applications',
+      'Apply few-shot and chain-of-thought prompting techniques',
+      'Evaluate and iterate on prompt quality systematically',
+      'Integrate prompt templates into real automation workflows',
+    ],
+  },
+];
+
+export const users = [
+  {
+    id: 'usr-subscriber-01',
+    name: 'Ananya Rao',
+    email: 'ananya.rao@example.com',
+    avatarInitials: 'AR',
+    role: 'subscriber',
+    status: 'Active',
+    joinedAt: '2025-11-02',
+    coursesEnrolled: 3,
+    hoursLearned: 61,
+  },
+  {
+    id: 'usr-creator-01',
+    name: 'Meera Iyer',
+    email: 'meera.iyer@olma.io',
+    avatarInitials: 'MI',
+    role: 'creator',
+    status: 'Active',
+    joinedAt: '2024-03-14',
+    coursesPublished: 2,
+    totalStudents: 18690,
+    totalEarnings: 214300,
+  },
+  {
+    id: 'usr-admin-01',
+    name: 'Marcus Chen',
+    email: 'marcus.chen@olma.io',
+    avatarInitials: 'MC',
+    role: 'administrator',
+    status: 'Active',
+    joinedAt: '2024-01-09',
+    department: 'Trust & Support',
+    region: 'North America',
+    ticketsResolved: 1204,
+  },
+  {
+    id: 'usr-admin-02',
+    name: 'Aisha Bello',
+    email: 'aisha.bello@olma.io',
+    avatarInitials: 'AB',
+    role: 'administrator',
+    status: 'Active',
+    joinedAt: '2024-05-20',
+    department: 'Payments Operations',
+    region: 'EMEA',
+  },
+  {
+    id: 'usr-admin-03',
+    name: 'Diego Fuentes',
+    email: 'diego.fuentes@olma.io',
+    avatarInitials: 'DF',
+    role: 'administrator',
+    status: 'Active',
+    joinedAt: '2024-09-11',
+    department: 'Content Moderation',
+    region: 'Latin America',
+  },
+  {
+    id: 'usr-admin-04',
+    name: 'Hana Kobayashi',
+    email: 'hana.kobayashi@olma.io',
+    avatarInitials: 'HK',
+    role: 'administrator',
+    status: 'Active',
+    joinedAt: '2025-02-03',
+    department: 'Platform Engineering',
+    region: 'Asia-Pacific',
+  },
+  {
+    id: 'usr-admin-05',
+    name: 'Sarah Lindgren',
+    email: 'sarah.lindgren@olma.io',
+    avatarInitials: 'SL',
+    role: 'administrator',
+    status: 'Invited',
+    joinedAt: '2026-08-30',
+    department: 'Compliance',
+    region: 'EMEA',
+  },
+  {
+    id: 'usr-superadmin-01',
+    name: 'Olivia Grant',
+    email: 'olivia.grant@olma.io',
+    avatarInitials: 'OG',
+    role: 'superadmin',
+    status: 'Active',
+    joinedAt: '2023-06-01',
+    title: 'Head of Platform Operations',
+    orgsManaged: 12,
+  },
+];
+
+export const administrators = users.filter((user) => user.role === 'administrator');
+
+// The Creator portal represents this one creator's session throughout —
+// every Creator page reuses these instead of re-deriving or re-picking one.
+export const CURRENT_CREATOR_ID = 'usr-creator-01';
+export const currentCreator = users.find((user) => user.id === CURRENT_CREATOR_ID);
+export const myCourses = courses.filter((course) => course.creatorId === CURRENT_CREATOR_ID);
+export const studioCourse = courses.find((course) => course.id === 'crs-07');
+
+export const transactions = [
+  {
+    id: 'txn-1001',
+    courseTitle: 'Python for Data Analysis: Zero to Production',
+    buyer: 'Ananya Rao',
+    amount: 49.99,
+    currency: 'USD',
+    status: 'Paid',
+    method: 'Card',
+    date: '2026-09-03',
+  },
+  {
+    id: 'txn-1002',
+    courseTitle: 'Building AI Agent Workflows: RAG Pipelines & n8n Automation',
+    buyer: 'Ravi Deshmukh',
+    amount: 89.99,
+    currency: 'USD',
+    status: 'Paid',
+    method: 'PayPal',
+    date: '2026-09-02',
+  },
+  {
+    id: 'txn-1003',
+    courseTitle: 'Machine Learning Foundations with Scikit-learn',
+    buyer: 'Sofia Marchetti',
+    amount: 59.99,
+    currency: 'USD',
+    status: 'Refunded',
+    method: 'Card',
+    date: '2026-09-01',
+  },
+  {
+    id: 'txn-1004',
+    courseTitle: 'Deep Learning with PyTorch: Tensors to Transformers',
+    buyer: 'Tomasz Nowak',
+    amount: 79.99,
+    currency: 'USD',
+    status: 'Paid',
+    method: 'UPI',
+    date: '2026-08-31',
+  },
+  {
+    id: 'txn-1005',
+    courseTitle: 'SQL & Database Design Foundations',
+    buyer: 'Grace Okafor',
+    amount: 39.99,
+    currency: 'USD',
+    status: 'Pending',
+    method: 'Card',
+    date: '2026-08-31',
+  },
+  {
+    id: 'txn-1006',
+    courseTitle: 'NLP Engineering: Text to Meaning with Transformers',
+    buyer: 'Ananya Rao',
+    amount: 69.99,
+    currency: 'USD',
+    status: 'Paid',
+    method: 'Card',
+    date: '2026-08-29',
+  },
+  {
+    id: 'txn-1007',
+    courseTitle: 'Python for Data Analysis: Zero to Production',
+    buyer: 'Liam O’Connor',
+    amount: 49.99,
+    currency: 'USD',
+    status: 'Paid',
+    method: 'PayPal',
+    date: '2026-08-27',
+  },
+  {
+    id: 'txn-1008',
+    courseTitle: 'Machine Learning Foundations with Scikit-learn',
+    buyer: 'Ananya Rao',
+    amount: 59.99,
+    currency: 'USD',
+    status: 'Paid',
+    method: 'Card',
+    date: '2026-08-20',
+  },
+  {
+    id: 'txn-1009',
+    courseTitle: 'Building AI Agent Workflows: RAG Pipelines & n8n Automation',
+    buyer: 'Ananya Rao',
+    amount: 89.99,
+    currency: 'USD',
+    status: 'Paid',
+    method: 'Card',
+    date: '2026-08-31',
+  },
+];
+
+export const tickets = [
+  {
+    id: 'tkt-4401',
+    subject: 'Video playback stalls on Module 3',
+    submittedBy: 'Ananya Rao',
+    course: 'Deep Learning with PyTorch: Tensors to Transformers',
+    priority: 'High',
+    status: 'In Progress',
+    updatedAt: '2026-09-03',
+  },
+  {
+    id: 'tkt-4402',
+    subject: 'Payout not received for August',
+    submittedBy: 'Daniel Osei',
+    course: 'Building AI Agent Workflows: RAG Pipelines & n8n Automation',
+    priority: 'Urgent',
+    status: 'Open',
+    updatedAt: '2026-09-03',
+  },
+  {
+    id: 'tkt-4403',
+    subject: 'Request to update course thumbnail',
+    submittedBy: 'Priya Nair',
+    course: 'SQL & Database Design Foundations',
+    priority: 'Low',
+    status: 'Open',
+    updatedAt: '2026-09-02',
+  },
+  {
+    id: 'tkt-4404',
+    subject: 'Certificate shows wrong completion date',
+    submittedBy: 'Ananya Rao',
+    course: 'Python for Data Analysis: Zero to Production',
+    priority: 'Medium',
+    status: 'Resolved',
+    updatedAt: '2026-08-30',
+  },
+  {
+    id: 'tkt-4405',
+    subject: 'Duplicate charge on checkout',
+    submittedBy: 'Grace Okafor',
+    course: 'SQL & Database Design Foundations',
+    priority: 'High',
+    status: 'Closed',
+    updatedAt: '2026-08-28',
+  },
+  {
+    id: 'tkt-4406',
+    subject: 'Video upload stuck at Processing for 2 days',
+    submittedBy: 'Meera Iyer',
+    course: 'Prompt Engineering for LLM Applications',
+    priority: 'High',
+    status: 'Open',
+    updatedAt: '2026-09-04',
+  },
+  {
+    id: 'tkt-4407',
+    subject: 'Question about payout tax form requirements',
+    submittedBy: 'Meera Iyer',
+    course: '—',
+    priority: 'Low',
+    status: 'Resolved',
+    updatedAt: '2026-08-20',
+  },
+];
+
+export const platformMetrics = {
+  uptime: {
+    label: 'Platform uptime',
+    value: '99.98%',
+    delta: '+0.02 pt vs last month',
+    trend: 'up',
+    sentiment: 'positive',
+  },
+  activeUsers: {
+    label: 'Active users',
+    value: '42,180',
+    delta: '+6.4% vs last month',
+    trend: 'up',
+    sentiment: 'positive',
+  },
+  gmvThisMonth: {
+    label: 'GMV this month',
+    value: '$284.6K',
+    delta: '+11.2% vs last month',
+    trend: 'up',
+    sentiment: 'positive',
+  },
+  churnRate: {
+    label: 'Churn rate',
+    value: '2.1%',
+    delta: '-0.3 pt vs last month',
+    trend: 'down',
+    sentiment: 'positive',
+  },
+};
+
+export const gmvTrend = [
+  { month: 'Apr', gmv: 198400 },
+  { month: 'May', gmv: 212300 },
+  { month: 'Jun', gmv: 227900 },
+  { month: 'Jul', gmv: 241500 },
+  { month: 'Aug', gmv: 256800 },
+  { month: 'Sep', gmv: 284600 },
+];
+
+export const auditLogEntries = [
+  {
+    id: 'aud-001',
+    timestamp: '2026-09-04 16:05',
+    actor: 'Olivia Grant',
+    action: 'Granted Administrator role',
+    target: 'Sarah Lindgren',
+    severity: 'Sensitive',
+  },
+  {
+    id: 'aud-002',
+    timestamp: '2026-09-04 14:32',
+    actor: 'Marcus Chen',
+    action: 'Suspended user account',
+    target: 'Kwame Mensah (subscriber)',
+    severity: 'Sensitive',
+  },
+  {
+    id: 'aud-003',
+    timestamp: '2026-09-04 11:18',
+    actor: 'Aisha Bello',
+    action: 'Issued refund override',
+    target: 'txn-1003 · $59.99',
+    severity: 'Sensitive',
+  },
+  {
+    id: 'aud-004',
+    timestamp: '2026-09-03 22:47',
+    actor: 'Hana Kobayashi',
+    action: 'Rotated platform API signing key',
+    target: 'Payments service',
+    severity: 'Critical',
+  },
+  {
+    id: 'aud-005',
+    timestamp: '2026-09-03 18:20',
+    actor: 'Diego Fuentes',
+    action: 'Unpublished course listing',
+    target: 'NLP Engineering: Text to Meaning with Transformers',
+    severity: 'Routine',
+  },
+  {
+    id: 'aud-006',
+    timestamp: '2026-09-03 09:12',
+    actor: 'Olivia Grant',
+    action: 'Updated platform fee schedule',
+    target: 'Creator payout tier: Standard → Plus',
+    severity: 'Critical',
+  },
+  {
+    id: 'aud-007',
+    timestamp: '2026-09-02 20:03',
+    actor: 'Marcus Chen',
+    action: 'Resolved escalated support ticket',
+    target: 'tkt-4405',
+    severity: 'Routine',
+  },
+  {
+    id: 'aud-008',
+    timestamp: '2026-09-02 15:44',
+    actor: 'Sarah Lindgren',
+    action: 'Approved compliance policy update',
+    target: 'Data retention policy v3',
+    severity: 'Sensitive',
+  },
+  {
+    id: 'aud-009',
+    timestamp: '2026-09-01 10:30',
+    actor: 'Aisha Bello',
+    action: 'Approved payout batch',
+    target: 'August payouts · $214,300',
+    severity: 'Critical',
+  },
+  {
+    id: 'aud-010',
+    timestamp: '2026-08-31 13:57',
+    actor: 'Marcus Chen',
+    action: 'Reset two-factor authentication',
+    target: 'Ananya Rao',
+    severity: 'Sensitive',
+  },
+  {
+    id: 'aud-011',
+    timestamp: '2026-08-30 08:15',
+    actor: 'Hana Kobayashi',
+    action: 'Deployed platform configuration change',
+    target: 'Checkout service v2.4.1',
+    severity: 'Routine',
+  },
+  {
+    id: 'aud-012',
+    timestamp: '2026-08-29 17:26',
+    actor: 'Olivia Grant',
+    action: 'Revoked administrator access',
+    target: 'Former staff account',
+    severity: 'Critical',
+  },
+];
+
+export const kycApplications = [
+  {
+    id: 'kyc-001',
+    applicantName: 'Farah Al-Sayed',
+    email: 'farah.alsayed@example.com',
+    country: 'United Arab Emirates',
+    submittedAt: '2026-09-02',
+    documentsSubmitted: 3,
+    status: 'Pending',
+  },
+  {
+    id: 'kyc-002',
+    applicantName: 'Tobias Reinhardt',
+    email: 'tobias.reinhardt@example.com',
+    country: 'Germany',
+    submittedAt: '2026-09-01',
+    documentsSubmitted: 4,
+    status: 'Pending',
+  },
+  {
+    id: 'kyc-003',
+    applicantName: 'Ngozi Adeyemi',
+    email: 'ngozi.adeyemi@example.com',
+    country: 'Nigeria',
+    submittedAt: '2026-08-30',
+    documentsSubmitted: 2,
+    status: 'Pending',
+  },
+  {
+    id: 'kyc-004',
+    applicantName: 'Wei Chen',
+    email: 'wei.chen@example.com',
+    country: 'Singapore',
+    submittedAt: '2026-08-29',
+    documentsSubmitted: 3,
+    status: 'Pending',
+  },
+  {
+    id: 'kyc-005',
+    applicantName: 'Camille Dubois',
+    email: 'camille.dubois@example.com',
+    country: 'France',
+    submittedAt: '2026-08-28',
+    documentsSubmitted: 4,
+    status: 'Pending',
+  },
+];
+
+export const subscriptionPlan = {
+  name: 'OLMA Unlimited',
+  price: 19.99,
+  currency: 'USD',
+  billingPeriod: 'month',
+  status: 'Active',
+  entitlements: [
+    'Unlimited access to the full course catalog',
+    'New courses added every month',
+    'Access on any device, anytime',
+    'Priority support response',
+  ],
+  subscriberCount: 8340,
+  updatedAt: '2026-08-15',
+};
+
+export const emailTemplates = [
+  {
+    id: 'tpl-001',
+    name: 'Welcome Email',
+    category: 'Transactional',
+    trigger: 'New account created',
+    subject: 'Welcome to OLMA — let’s get you learning',
+    previewBody:
+      'Hi {{first_name}}, welcome to OLMA! Your account is ready — explore courses across Python, databases, machine learning, deep learning, NLP, and RAG. Jump back in anytime from your dashboard.',
+    status: 'Active',
+    updatedAt: '2026-07-18',
+  },
+  {
+    id: 'tpl-002',
+    name: 'Purchase Confirmation',
+    category: 'Transactional',
+    trigger: 'Course purchase completed',
+    subject: 'Your OLMA order is confirmed',
+    previewBody:
+      'Hi {{first_name}}, thanks for your purchase of {{course_title}}. Your receipt is attached, and the course is now available under My Learning.',
+    status: 'Active',
+    updatedAt: '2026-08-02',
+  },
+  {
+    id: 'tpl-003',
+    name: 'Course Published',
+    category: 'Transactional',
+    trigger: 'Creator publishes a new course',
+    subject: 'Your course is live on OLMA',
+    previewBody:
+      'Hi {{creator_name}}, your course {{course_title}} just went live on OLMA. Students can now discover and enroll — track performance from your Creator dashboard.',
+    status: 'Active',
+    updatedAt: '2026-08-22',
+  },
+];
+
+export const onboardingChecklist = [
+  { label: 'Identity verified (KYC)', done: true },
+  { label: 'Payout method connected', done: true },
+  { label: 'Creator agreement signed', done: true },
+  { label: 'Tax information submitted', done: false },
+];
+
+export const courseCurriculum = {
+  courseId: 'crs-07',
+  sections: [
+    {
+      id: 'sec-1',
+      title: 'Foundations of Prompting',
+      lessons: [
+        { id: 'les-1-1', title: 'What Makes a Good Prompt', type: 'video', durationMinutes: 14 },
+        { id: 'les-1-2', title: 'Prompt Structure & Anatomy', type: 'article', durationMinutes: 8 },
+        { id: 'les-1-3', title: 'Foundations Quiz', type: 'quiz', durationMinutes: 10 },
+      ],
+    },
+    {
+      id: 'sec-2',
+      title: 'Advanced Techniques',
+      lessons: [
+        { id: 'les-2-1', title: 'Few-Shot Prompting', type: 'video', durationMinutes: 18 },
+        { id: 'les-2-2', title: 'Chain-of-Thought Reasoning', type: 'video', durationMinutes: 21 },
+        { id: 'les-2-3', title: 'Prompt Patterns Reference', type: 'article', durationMinutes: 12 },
+      ],
+    },
+    {
+      id: 'sec-3',
+      title: 'Production Workflows',
+      lessons: [
+        { id: 'les-3-1', title: 'Templating with Variables', type: 'video', durationMinutes: 16 },
+        { id: 'les-3-2', title: 'Wiring Prompts into n8n', type: 'video', durationMinutes: 24 },
+        { id: 'les-3-3', title: 'Production Workflows Quiz', type: 'quiz', durationMinutes: 10 },
+      ],
+    },
+  ],
+};
+
+export const mediaAssets = [
+  {
+    id: 'med-1',
+    fileName: 'lesson-1-1-what-makes-a-good-prompt.mp4',
+    linkedLesson: 'What Makes a Good Prompt',
+    sizeMb: 184,
+    transcodeStatus: 'Ready',
+    captionStatus: 'Ready',
+    uploadedAt: '2026-09-01',
+  },
+  {
+    id: 'med-2',
+    fileName: 'lesson-2-1-few-shot-prompting.mp4',
+    linkedLesson: 'Few-Shot Prompting',
+    sizeMb: 221,
+    transcodeStatus: 'Processing',
+    captionStatus: 'Pending',
+    uploadedAt: '2026-09-03',
+  },
+  {
+    id: 'med-3',
+    fileName: 'lesson-2-2-chain-of-thought-reasoning.mp4',
+    linkedLesson: 'Chain-of-Thought Reasoning',
+    sizeMb: 256,
+    transcodeStatus: 'Ready',
+    captionStatus: 'Processing',
+    uploadedAt: '2026-09-03',
+  },
+  {
+    id: 'med-4',
+    fileName: 'lesson-3-1-templating-with-variables.mp4',
+    linkedLesson: 'Templating with Variables',
+    sizeMb: 198,
+    transcodeStatus: 'Ready',
+    captionStatus: 'Ready',
+    uploadedAt: '2026-09-04',
+  },
+  {
+    id: 'med-5',
+    fileName: 'lesson-3-2-wiring-prompts-into-n8n.mp4',
+    linkedLesson: 'Wiring Prompts into n8n',
+    sizeMb: 267,
+    transcodeStatus: 'Failed',
+    captionStatus: 'Pending',
+    uploadedAt: '2026-09-04',
+  },
+];
+
+export const quizzes = [
+  {
+    id: 'quiz-1',
+    title: 'Foundations Quiz',
+    linkedSection: 'Foundations of Prompting',
+    questionCount: 8,
+    passingScore: 70,
+    status: 'Ready',
+  },
+  {
+    id: 'quiz-2',
+    title: 'Production Workflows Quiz',
+    linkedSection: 'Production Workflows',
+    questionCount: 10,
+    passingScore: 75,
+    status: 'Draft',
+  },
+];
+
+export const preflightChecklist = [
+  { label: 'Course basics completed (title, category, level, outcomes)', done: true },
+  { label: 'At least 3 curriculum sections added', done: true },
+  { label: 'All videos finished transcoding', done: false },
+  { label: 'Captions generated for all videos', done: false },
+  { label: 'At least one assessment published', done: false },
+  { label: 'Pricing and payout details confirmed', done: true },
+];
+
+export const earningsSummary = {
+  gross: 214300,
+  net: 150010,
+  thisMonth: 18420,
+};
+
+export const earningsByCourse = [
+  { label: 'Python for Data Analysis', gross: 214300 },
+  { label: 'NLP Engineering', gross: 0 },
+  { label: 'Prompt Engineering', gross: 0 },
+];
+
+// The Subscriber portal represents this one learner's session throughout —
+// every Subscriber page reuses these instead of re-deriving or re-picking one.
+export const CURRENT_SUBSCRIBER_ID = 'usr-subscriber-01';
+export const currentSubscriber = users.find((user) => user.id === CURRENT_SUBSCRIBER_ID);
+
+export const enrollments = [
+  { courseId: 'crs-01', progress: 100, lastAccessedAt: '2026-08-25', status: 'Completed' },
+  { courseId: 'crs-03', progress: 56, lastAccessedAt: '2026-09-04', status: 'In Progress' },
+  { courseId: 'crs-06', progress: 15, lastAccessedAt: '2026-09-01', status: 'In Progress' },
+];
+
+const enrolledCourseIds = enrollments.map((enrollment) => enrollment.courseId);
+
+export const myEnrolledCourses = enrollments.map((enrollment) => ({
+  ...courses.find((course) => course.id === enrollment.courseId),
+  enrollment,
+}));
+
+export const recommendedCourses = courses.filter(
+  (course) => course.status === 'Published' && !enrolledCourseIds.includes(course.id),
+);
+
+// The one course a not-yet-enrolled visitor browses through Course Detail,
+// Search, View Plans, and Cart & Checkout.
+export const featuredCourseId = 'crs-02';
+export const featuredCourse = courses.find((course) => course.id === featuredCourseId);
+
+// The one enrolled course whose curriculum/player/quiz pages show real
+// progress — chosen because it's mid-way through (56%), not finished or
+// just started.
+export const playerCourseId = 'crs-03';
+export const playerCourse = courses.find((course) => course.id === playerCourseId);
+
+export const courseDetailCurriculum = {
+  courseId: 'crs-02',
+  sections: [
+    { id: 'sql-sec-1', title: 'Relational Database Fundamentals', lessonCount: 9 },
+    { id: 'sql-sec-2', title: 'Writing Queries with SQL', lessonCount: 14 },
+    { id: 'sql-sec-3', title: 'Schema Design & Normalization', lessonCount: 11 },
+    { id: 'sql-sec-4', title: 'Indexes, Joins & Performance', lessonCount: 13 },
+    { id: 'sql-sec-5', title: 'Real-World Database Projects', lessonCount: 15 },
+  ],
+};
+
+export const learningCurriculum = {
+  courseId: 'crs-03',
+  sections: [
+    {
+      id: 'ml-sec-1',
+      title: 'Introduction to Machine Learning',
+      lessons: [
+        { id: 'ml-1-1', title: 'What is Machine Learning?', type: 'video', durationMinutes: 12, completed: true },
+        { id: 'ml-1-2', title: 'Supervised vs Unsupervised Learning', type: 'video', durationMinutes: 15, completed: true },
+        { id: 'ml-1-3', title: 'Setting Up Your Environment', type: 'article', durationMinutes: 6, completed: true },
+      ],
+    },
+    {
+      id: 'ml-sec-2',
+      title: 'Regression & Classification',
+      lessons: [
+        { id: 'ml-2-1', title: 'Linear Regression from Scratch', type: 'video', durationMinutes: 22, completed: true },
+        { id: 'ml-2-2', title: 'Logistic Regression', type: 'video', durationMinutes: 19, completed: true },
+        { id: 'ml-2-3', title: 'Regression Quiz', type: 'quiz', durationMinutes: 10, completed: false },
+      ],
+    },
+    {
+      id: 'ml-sec-3',
+      title: 'Model Evaluation',
+      lessons: [
+        { id: 'ml-3-1', title: 'Cross-Validation Techniques', type: 'video', durationMinutes: 18, completed: false },
+        { id: 'ml-3-2', title: 'Confusion Matrices & Metrics', type: 'video', durationMinutes: 20, completed: false },
+        { id: 'ml-3-3', title: 'Evaluation Quiz', type: 'quiz', durationMinutes: 12, completed: false },
+      ],
+    },
+  ],
+};
+
+// The lesson Content Player has open — the first not-yet-completed video.
+export const currentLessonId = 'ml-3-1';
+
+export const sampleQuizQuestion = {
+  quizTitle: 'Regression Quiz',
+  courseId: 'crs-03',
+  question: 'Which metric is most appropriate for evaluating a binary classification model with imbalanced classes?',
+  options: [
+    { id: 'a', text: 'Accuracy' },
+    { id: 'b', text: 'F1 score' },
+    { id: 'c', text: 'Mean Squared Error' },
+    { id: 'd', text: 'R-squared' },
+  ],
+  correctOptionId: 'b',
+  explanation:
+    'Accuracy can be misleading on imbalanced datasets since predicting the majority class alone can yield high accuracy. F1 score balances precision and recall, making it far more informative for imbalanced classification problems.',
+};
+
+export const learningStats = {
+  streakDays: 12,
+  avgQuizScore: 84,
+};
+
+export const weeklyLearningHours = [
+  { week: 'W1', hours: 4 },
+  { week: 'W2', hours: 6 },
+  { week: 'W3', hours: 5 },
+  { week: 'W4', hours: 8 },
+  { week: 'W5', hours: 7 },
+  { week: 'W6', hours: 9 },
+];
+
+export const mySubscription = {
+  planName: 'OLMA Unlimited',
+  price: 19.99,
+  billingPeriod: 'month',
+  status: 'Active',
+  renewalDate: '2026-10-04',
+  startedAt: '2025-11-02',
+};
+
+export const activeSessions = [
+  { id: 'sess-1', device: 'Chrome on macOS', location: 'Mumbai, India', lastActive: '2026-09-04 09:12', current: true },
+  { id: 'sess-2', device: 'OLMA iOS App', location: 'Mumbai, India', lastActive: '2026-09-03 21:40', current: false },
+  { id: 'sess-3', device: 'Safari on iPhone', location: 'Pune, India', lastActive: '2026-08-29 18:05', current: false },
+];
+
+export const notifications = [
+  {
+    id: 'ntf-01',
+    message: 'Your course "NLP Engineering" passed initial review and is awaiting final approval.',
+    type: 'info',
+    time: '2h ago',
+    read: false,
+  },
+  {
+    id: 'ntf-02',
+    message: 'Payout of $18,420 was deposited to your linked account.',
+    type: 'success',
+    time: '5h ago',
+    read: false,
+  },
+  {
+    id: 'ntf-03',
+    message: 'Ticket tkt-4402 is marked Urgent and unassigned.',
+    type: 'alert',
+    time: '6h ago',
+    read: false,
+  },
+  {
+    id: 'ntf-04',
+    message: 'New review: 5 stars on "Deep Learning with PyTorch".',
+    type: 'success',
+    time: 'Yesterday',
+    read: true,
+  },
+  {
+    id: 'ntf-05',
+    message: 'Platform-wide maintenance scheduled for Sept 6, 02:00 UTC.',
+    type: 'warning',
+    time: 'Yesterday',
+    read: true,
+  },
+  {
+    id: 'ntf-06',
+    message: 'Ananya Rao completed "Python for Data Analysis: Zero to Production".',
+    type: 'info',
+    time: '2d ago',
+    read: true,
+  },
+];

@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  /* Neutrals — warm paper, not stark white */
+  --color-paper: #f6f1e7;
+  --color-paper-alt: #efe7d5;
+  --color-paper-deep: #e7dcc3;
+  --color-ink: #211e18;
+  --color-ink-soft: #514c40;
+  --color-ink-faint: #837c6c;
+  --color-line: #ddd2b8;
+
+  /* Shared brand accent — deep pine teal */
+  --color-brand: #2f6f5e;
+  --color-brand-dark: #234f42;
+  --color-brand-soft: #e2ede9;
+
+  /* Per-portal accents */
+  --color-superadmin: #6d4fd1;
+  --color-superadmin-soft: #ece7fa;
+  --color-administrator: #0e8a83;
+  --color-administrator-soft: #e0f0ee;
+  --color-creator: #bd8420;
+  --color-creator-soft: #f5ecd9;
+  --color-subscriber: #2e58c9;
+  --color-subscriber-soft: #e4eafa;
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--color-brand);
+  color: var(--color-paper);
+}
+
+* {
+  scrollbar-color: var(--color-paper-deep) transparent;
+  scrollbar-width: thin;
+}
